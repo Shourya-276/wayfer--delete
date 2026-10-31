@@ -47,10 +47,10 @@ export default function PolicyFaq() {
         <div className="card" style={{ padding: '24px' }}>
           <Database size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
           <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
-            Data Purge Standards
+            Secure Data Deletion
           </h3>
           <p className="text-sm text-neutral-400 font-normal leading-relaxed">
-            All telematics, active sessions, and profile records are sanitized across distributed clusters using cryptographic shredding.
+            All profile records, trip histories, and active sessions are permanently erased from all our servers.
           </p>
         </div>
 

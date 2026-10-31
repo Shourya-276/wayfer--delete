@@ -156,11 +156,11 @@ export default function Hero({ currentView, setCurrentView }) {
               <FileCheck size={16} color="#ffffff" />
             </div>
             <h2 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
-              Complete Data Scrub
+              Permanent Data Deletion
             </h2>
           </div>
           <p className="text-sm text-neutral-400 font-normal leading-relaxed">
-            Profiles, route histories, telemetry logs, saved addresses, and payment tokens are completely expunged.
+            Your personal profile, ride history, location data, saved places, and payment details are completely and permanently removed.
           </p>
         </div>
 
