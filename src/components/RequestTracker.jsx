@@ -68,14 +68,16 @@ export default function RequestTracker({ initialCode = '' }) {
         textAlign: 'center',
         marginBottom: '32px'
       }}>
-        <span className="badge badge-outline" style={{ marginBottom: '12px' }}>
-          LIVE TRACKING SYSTEM
-        </span>
-        <h2 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '8px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold">
+            LIVE TRACKING SYSTEM
+          </span>
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight mb-2">
           Track Your Erasure Request
         </h2>
-        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', maxWidth: '540px', margin: '0 auto' }}>
-          Enter your unique Reference Code (e.g., <code>WAY-DEL-89241</code>) or registered account email to inspect live verification and purge status.
+        <p className="text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-lg mx-auto">
+          Enter your unique Reference Code (e.g., <code className="font-mono text-white text-xs bg-white/10 px-1.5 py-0.5 rounded">WAY-DEL-89241</code>) or registered account email to inspect live verification and purge status.
         </p>
       </div>
 
@@ -84,7 +86,7 @@ export default function RequestTracker({ initialCode = '' }) {
         display: 'flex',
         gap: '10px',
         maxWidth: '560px',
-        margin: '0 auto 24px auto'
+        margin: '0 auto 20px auto'
       }}>
         <div style={{ position: 'relative', flex: 1 }}>
           <Search size={18} color="var(--text-muted)" style={{
@@ -95,31 +97,25 @@ export default function RequestTracker({ initialCode = '' }) {
           }} />
           <input
             type="text"
-            className="form-input"
-            style={{ paddingLeft: '44px', fontFamily: 'var(--font-mono)' }}
+            className="form-input font-mono text-sm text-white"
+            style={{ paddingLeft: '44px' }}
             placeholder="WAY-DEL-89241 or email@domain.com"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary" style={{ flexShrink: 0 }}>
+        <button type="submit" className="btn btn-primary text-xs sm:text-sm font-black uppercase tracking-wider" style={{ flexShrink: 0 }}>
           Track Status
         </button>
       </form>
 
       {/* Demo sample pills */}
-      <div style={{
-        textAlign: 'center',
-        marginBottom: '36px',
-        fontSize: '0.78rem',
-        color: 'var(--text-muted)'
-      }}>
+      <div className="font-mono text-[10px] sm:text-[11px] text-neutral-400 text-center mb-8">
         <span>Try demo reference codes: </span>
         <button
           type="button"
           onClick={() => { setSearchQuery('WAY-DEL-89241'); setResult(getRequestByRefOrEmail('WAY-DEL-89241')); setHasSearched(true); }}
-          className="btn-ghost"
-          style={{ textDecoration: 'underline', padding: '0 4px', fontSize: '0.78rem', cursor: 'pointer' }}
+          className="btn-ghost text-white underline cursor-pointer px-1 font-mono"
         >
           WAY-DEL-89241
         </button>
@@ -127,8 +123,7 @@ export default function RequestTracker({ initialCode = '' }) {
         <button
           type="button"
           onClick={() => { setSearchQuery('WAY-DEL-76319'); setResult(getRequestByRefOrEmail('WAY-DEL-76319')); setHasSearched(true); }}
-          className="btn-ghost"
-          style={{ textDecoration: 'underline', padding: '0 4px', fontSize: '0.78rem', cursor: 'pointer' }}
+          className="btn-ghost text-white underline cursor-pointer px-1 font-mono"
         >
           WAY-DEL-76319
         </button>
@@ -136,8 +131,7 @@ export default function RequestTracker({ initialCode = '' }) {
         <button
           type="button"
           onClick={() => { setSearchQuery('WAY-DEL-65102'); setResult(getRequestByRefOrEmail('WAY-DEL-65102')); setHasSearched(true); }}
-          className="btn-ghost"
-          style={{ textDecoration: 'underline', padding: '0 4px', fontSize: '0.78rem', cursor: 'pointer' }}
+          className="btn-ghost text-white underline cursor-pointer px-1 font-mono"
         >
           WAY-DEL-65102
         </button>
@@ -155,7 +149,7 @@ export default function RequestTracker({ initialCode = '' }) {
           gap: '12px'
         }}>
           <CheckCircle size={18} color="#ffffff" />
-          <span style={{ fontSize: '0.88rem', color: '#ffffff' }}>{cancelSuccessMsg}</span>
+          <span className="text-sm font-medium text-white">{cancelSuccessMsg}</span>
         </div>
       )}
 
@@ -176,37 +170,19 @@ export default function RequestTracker({ initialCode = '' }) {
               marginBottom: '24px'
             }}>
               <div>
-                <span style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.75rem',
-                  letterSpacing: '0.08em',
-                  color: 'var(--text-muted)',
-                  textTransform: 'uppercase'
-                }}>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
                   Reference ID
                 </span>
-                <h3 style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '1.4rem',
-                  fontWeight: '700',
-                  color: '#ffffff'
-                }}>
+                <h3 className="font-mono text-xl sm:text-2xl font-black text-white tracking-wider">
                   {result.id}
                 </h3>
               </div>
 
               <div style={{ textAlign: 'right' }}>
-                <span style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.75rem',
-                  letterSpacing: '0.08em',
-                  color: 'var(--text-muted)',
-                  textTransform: 'uppercase',
-                  display: 'block'
-                }}>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
                   Current Status
                 </span>
-                <span className="badge badge-solid" style={{ marginTop: '4px' }}>
+                <span className="badge badge-solid font-mono text-xs uppercase tracking-wider font-bold">
                   {result.status}
                 </span>
               </div>
@@ -255,18 +231,10 @@ export default function RequestTracker({ initialCode = '' }) {
                       }}>
                         {isCompleted && idx < stageIdx ? '✓' : idx + 1}
                       </div>
-                      <div style={{
-                        fontSize: '0.8rem',
-                        fontWeight: '600',
-                        color: isCompleted ? '#ffffff' : 'var(--text-muted)'
-                      }}>
+                      <div className="font-mono text-xs font-bold tracking-wider" style={{ color: isCompleted ? '#ffffff' : 'var(--text-muted)' }}>
                         {step.title}
                       </div>
-                      <div style={{
-                        fontSize: '0.7rem',
-                        color: 'var(--text-dim)',
-                        marginTop: '2px'
-                      }}>
+                      <div className="font-mono text-[10px] text-neutral-400 mt-0.5">
                         {step.desc}
                       </div>
                     </div>
@@ -284,34 +252,33 @@ export default function RequestTracker({ initialCode = '' }) {
               padding: '20px',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border-medium)',
-              fontSize: '0.85rem',
               marginBottom: '24px'
             }}>
               <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Applicant Name</span>
-                <strong style={{ color: '#ffffff' }}>{result.fullName}</strong>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">Applicant Name</span>
+                <strong className="text-white font-semibold text-sm">{result.fullName}</strong>
               </div>
               <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Account Email</span>
-                <strong style={{ color: '#ffffff' }}>{result.email}</strong>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">Account Email</span>
+                <strong className="text-white font-semibold text-sm">{result.email}</strong>
               </div>
               {result.phone && result.phone !== 'Not specified' && (
                 <div>
-                  <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Registered Phone</span>
-                  <strong style={{ color: '#ffffff' }}>{result.phone}</strong>
+                  <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">Registered Phone</span>
+                  <strong className="text-white font-semibold text-sm">{result.phone}</strong>
                 </div>
               )}
               <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Erasure Scope</span>
-                <strong style={{ color: '#ffffff' }}>{result.scopeLabel}</strong>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">Erasure Scope</span>
+                <strong className="text-white font-semibold text-sm">{result.scopeLabel}</strong>
               </div>
               <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Submission Date</span>
-                <strong style={{ color: '#ffffff' }}>{new Date(result.submittedAt).toLocaleDateString()}</strong>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">Submission Date</span>
+                <strong className="text-white font-semibold text-sm">{new Date(result.submittedAt).toLocaleDateString()}</strong>
               </div>
               <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Grace Period Deadline</span>
-                <strong style={{ color: '#ffffff' }}>{new Date(result.gracePeriodEndsAt).toLocaleDateString()}</strong>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">Grace Period Deadline</span>
+                <strong className="text-white font-semibold text-sm">{new Date(result.gracePeriodEndsAt).toLocaleDateString()}</strong>
               </div>
             </div>
 
@@ -322,21 +289,12 @@ export default function RequestTracker({ initialCode = '' }) {
                 borderRadius: 'var(--radius-md)',
                 backgroundColor: '#0c0c0c',
                 border: '1px solid var(--border-medium)',
-                marginBottom: '24px',
-                fontSize: '0.84rem'
+                marginBottom: '24px'
               }}>
-                <span style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.08em',
-                  color: 'var(--text-muted)',
-                  textTransform: 'uppercase',
-                  display: 'block',
-                  marginBottom: '4px'
-                }}>
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
                   Security / Processing Log
                 </span>
-                <p style={{ color: 'var(--text-secondary)', margin: 0 }}>
+                <p className="font-mono text-xs text-neutral-300 font-normal leading-relaxed m-0">
                   {result.adminNotes}
                 </p>
               </div>
@@ -354,16 +312,16 @@ export default function RequestTracker({ initialCode = '' }) {
                 paddingTop: '20px'
               }}>
                 <div>
-                  <h4 style={{ fontSize: '0.9rem', color: '#ffffff', marginBottom: '2px' }}>
+                  <h4 className="text-sm font-extrabold tracking-tight text-white mb-0.5">
                     Changed your mind?
                   </h4>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  <p className="text-xs text-neutral-400 font-normal leading-relaxed">
                     You can immediately revoke this deletion request before the 14-day hold period elapses.
                   </p>
                 </div>
                 <button
                   onClick={handleCancelRequest}
-                  className="btn btn-secondary btn-sm"
+                  className="btn btn-secondary btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 >
                   <Undo2 size={14} /> Cancel Deletion Request
@@ -379,11 +337,11 @@ export default function RequestTracker({ initialCode = '' }) {
             color: 'var(--text-muted)'
           }}>
             <AlertCircle size={32} color="#ffffff" style={{ margin: '0 auto 12px auto' }} />
-            <h3 style={{ fontSize: '1.1rem', color: '#ffffff', marginBottom: '6px' }}>
+            <h3 className="text-lg font-extrabold tracking-tight text-white mb-1.5">
               No Deletion Record Found
             </h3>
-            <p style={{ fontSize: '0.85rem', maxWidth: '420px', margin: '0 auto' }}>
-              We could not find an active erasure request matching <strong>"{searchQuery}"</strong>. Please check your reference code or submit a new request.
+            <p className="text-sm text-neutral-300 font-normal leading-relaxed max-w-sm mx-auto">
+              We could not find an active erasure request matching <strong className="text-white font-semibold">"{searchQuery}"</strong>. Please check your reference code or submit a new request.
             </p>
           </div>
         )

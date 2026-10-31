@@ -76,26 +76,15 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
               alignItems: 'center',
               gap: '8px'
             }}>
-              <span style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.3rem',
-                fontWeight: '800',
-                letterSpacing: '-0.01em',
-                color: '#ffffff'
-              }}>
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-white">
                 WayFer
               </span>
-              <span className="badge badge-dim" style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md font-mono text-[10px] uppercase tracking-widest font-bold">
                 DATA & PRIVACY
               </span>
             </div>
-            <p style={{
-              fontSize: '0.72rem',
-              color: 'var(--text-muted)',
-              letterSpacing: '0.02em',
-              marginTop: '-2px'
-            }}>
-              Account & Erasure Portal
+            <p className="font-mono text-[10px] sm:text-[11px] text-neutral-400 tracking-wider mt-0.5">
+              ACCOUNT & ERASURE PORTAL
             </p>
           </div>
         </div>
@@ -108,7 +97,7 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
         }} className="desktop-nav">
           <button
             onClick={() => handleNavClick('portal')}
-            className={`btn-ghost btn-sm ${currentView === 'portal' ? 'active-nav-link' : ''}`}
+            className={`btn-ghost btn-sm text-xs sm:text-sm font-black uppercase tracking-wider ${currentView === 'portal' ? 'active-nav-link' : ''}`}
             style={{
               color: currentView === 'portal' ? '#ffffff' : 'var(--text-secondary)',
               borderBottom: currentView === 'portal' ? '1px solid #ffffff' : '1px solid transparent',
@@ -120,7 +109,7 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
           </button>
           <button
             onClick={() => handleNavClick('policy')}
-            className={`btn-ghost btn-sm ${currentView === 'policy' ? 'active-nav-link' : ''}`}
+            className={`btn-ghost btn-sm text-xs sm:text-sm font-black uppercase tracking-wider ${currentView === 'policy' ? 'active-nav-link' : ''}`}
             style={{
               color: currentView === 'policy' ? '#ffffff' : 'var(--text-secondary)',
               borderBottom: currentView === 'policy' ? '1px solid #ffffff' : '1px solid transparent',
@@ -171,14 +160,14 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
         }}>
           <button
             onClick={() => handleNavClick('portal')}
-            className={`btn ${currentView === 'portal' ? 'btn-primary' : 'btn-ghost'}`}
+            className={`btn ${currentView === 'portal' ? 'btn-primary' : 'btn-ghost'} text-xs sm:text-sm font-black uppercase tracking-wider`}
             style={{ justifyContent: 'flex-start', width: '100%', padding: '12px 16px' }}
           >
             Submit Deletion Request
           </button>
           <button
             onClick={() => handleNavClick('policy')}
-            className={`btn ${currentView === 'policy' ? 'btn-primary' : 'btn-ghost'}`}
+            className={`btn ${currentView === 'policy' ? 'btn-primary' : 'btn-ghost'} text-xs sm:text-sm font-black uppercase tracking-wider`}
             style={{ justifyContent: 'flex-start', width: '100%', padding: '12px 16px' }}
           >
             Retention Policy & FAQ

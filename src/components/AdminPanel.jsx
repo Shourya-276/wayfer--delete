@@ -236,13 +236,15 @@ export default function AdminPanel({ onExitToSite }) {
             }}>
               <img src="/wayfer-logo.png" alt="WayFer Logo" style={{ height: '52px', width: 'auto', objectFit: 'contain' }} />
             </div>
-            <span className="badge badge-outline" style={{ marginBottom: '8px' }}>
-              RESTRICTED ACCESS
-            </span>
-            <h1 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '6px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold">
+                RESTRICTED ACCESS
+              </span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight mb-2">
               WayFer Admin Control
             </h1>
-            <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+            <p className="text-sm text-neutral-400 font-normal leading-relaxed">
               Sign in with administrative credentials to process user data deletion requests.
             </p>
           </div>
@@ -253,23 +255,21 @@ export default function AdminPanel({ onExitToSite }) {
             border: '1px dashed var(--border-strong)',
             borderRadius: 'var(--radius-md)',
             padding: '14px 16px',
-            marginBottom: '24px',
-            fontSize: '0.82rem'
+            marginBottom: '24px'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-              <span style={{ color: 'var(--text-secondary)', fontWeight: '600' }}>Configured Credentials:</span>
+              <span className="font-mono text-xs uppercase tracking-wider font-bold text-white">Configured Credentials:</span>
               <button
                 type="button"
                 onClick={handleAutofillDemo}
-                className="btn-ghost"
-                style={{ fontSize: '0.75rem', textDecoration: 'underline', padding: '2px 6px', color: '#ffffff' }}
+                className="btn-ghost font-mono text-[11px] text-white underline cursor-pointer px-1"
               >
                 Auto-fill
               </button>
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-              <div>Login ID: <strong style={{ color: '#ffffff' }}>admin@gmail.com</strong></div>
-              <div>Password: <strong style={{ color: '#ffffff' }}>shor@123</strong></div>
+            <div className="font-mono text-xs text-neutral-400 leading-relaxed">
+              <div>Login ID: <strong className="text-white font-semibold">admin@gmail.com</strong></div>
+              <div>Password: <strong className="text-white font-semibold">shor@123</strong></div>
             </div>
           </div>
 
@@ -397,12 +397,14 @@ export default function AdminPanel({ onExitToSite }) {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span className="badge badge-solid">ADMIN COMMAND CENTER</span>
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold">
+              ADMIN COMMAND CENTER
+            </span>
+            <span className="font-mono text-[10px] sm:text-[11px] text-neutral-400">
               Logged in as: admin@gmail.com
             </span>
           </div>
-          <h1 style={{ fontSize: '1.8rem', fontWeight: '800', marginTop: '6px' }}>
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight mt-1.5">
             Account Deletion Queue
           </h1>
         </div>
@@ -410,33 +412,33 @@ export default function AdminPanel({ onExitToSite }) {
         <div className="admin-header-actions" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <button
             onClick={() => setShowAddModal(true)}
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
           >
             <PlusCircle size={14} /> New Manual Request
           </button>
           <button
             onClick={exportRequestsToCSV}
-            className="btn btn-secondary btn-sm"
+            className="btn btn-secondary btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
             title="Download CSV report"
           >
             <Download size={14} /> Export CSV
           </button>
           <button
             onClick={handleReset}
-            className="btn btn-ghost btn-sm"
+            className="btn btn-ghost btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
             title="Restore sample demo data"
           >
             <RotateCcw size={14} /> Reset Data
           </button>
           <button
             onClick={onExitToSite}
-            className="btn btn-secondary btn-sm"
+            className="btn btn-secondary btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
           >
             Public Site
           </button>
           <button
             onClick={handleLogout}
-            className="btn btn-danger btn-sm"
+            className="btn btn-danger btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
           >
             <LogOut size={14} /> Logout
           </button>
@@ -451,53 +453,53 @@ export default function AdminPanel({ onExitToSite }) {
         marginBottom: '32px'
       }}>
         <div className="card" style={{ padding: '18px' }}>
-          <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)' }}>
+          <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
             Total Requests
           </span>
-          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginTop: '4px' }}>
+          <div className="font-mono text-2xl sm:text-3xl font-black text-white tracking-tight">
             {totalCount}
           </div>
-          <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>All logged entries</span>
+          <span className="font-mono text-[10px] text-neutral-500 mt-1 block">All logged entries</span>
         </div>
 
         <div className="card" style={{ padding: '18px' }}>
-          <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)' }}>
+          <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
             In 14-Day Grace
           </span>
-          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginTop: '4px' }}>
+          <div className="font-mono text-2xl sm:text-3xl font-black text-white tracking-tight">
             {inGraceCount}
           </div>
-          <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Active cancellation window</span>
+          <span className="font-mono text-[10px] text-neutral-500 mt-1 block">Active cancellation window</span>
         </div>
 
         <div className="card" style={{ padding: '18px' }}>
-          <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)' }}>
+          <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
             Pending Review
           </span>
-          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginTop: '4px' }}>
+          <div className="font-mono text-2xl sm:text-3xl font-black text-white tracking-tight">
             {pendingCount}
           </div>
-          <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Awaiting verification</span>
+          <span className="font-mono text-[10px] text-neutral-500 mt-1 block">Awaiting verification</span>
         </div>
 
         <div className="card" style={{ padding: '18px' }}>
-          <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)' }}>
+          <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
             Purged / Completed
           </span>
-          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginTop: '4px' }}>
+          <div className="font-mono text-2xl sm:text-3xl font-black text-white tracking-tight">
             {completedCount}
           </div>
-          <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Permanent wipe complete</span>
+          <span className="font-mono text-[10px] text-neutral-500 mt-1 block">Permanent wipe complete</span>
         </div>
 
         <div className="card" style={{ padding: '18px' }}>
-          <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-heading)' }}>
+          <span className="font-mono text-[10px] uppercase tracking-wider font-bold text-neutral-400 block mb-1">
             Cancelled / Rejected
           </span>
-          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginTop: '4px' }}>
+          <div className="font-mono text-2xl sm:text-3xl font-black text-white tracking-tight">
             {cancelledCount}
           </div>
-          <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Revoked by user/admin</span>
+          <span className="font-mono text-[10px] text-neutral-500 mt-1 block">Revoked by user/admin</span>
         </div>
       </div>
 
@@ -553,12 +555,12 @@ export default function AdminPanel({ onExitToSite }) {
         <table className="mono-table">
           <thead>
             <tr>
-              <th>Request ID</th>
-              <th>Applicant</th>
-              <th>Scope</th>
-              <th>Submitted</th>
-              <th>Status</th>
-              <th style={{ textAlign: 'right' }}>Actions</th>
+              <th className="font-mono text-[10px] uppercase tracking-widest font-bold text-neutral-400">Request ID</th>
+              <th className="font-mono text-[10px] uppercase tracking-widest font-bold text-neutral-400">Applicant</th>
+              <th className="font-mono text-[10px] uppercase tracking-widest font-bold text-neutral-400">Scope</th>
+              <th className="font-mono text-[10px] uppercase tracking-widest font-bold text-neutral-400">Submitted</th>
+              <th className="font-mono text-[10px] uppercase tracking-widest font-bold text-neutral-400">Status</th>
+              <th className="font-mono text-[10px] uppercase tracking-widest font-bold text-neutral-400" style={{ textAlign: 'right' }}>Actions</th>
             </tr>
           </thead>
           <tbody>

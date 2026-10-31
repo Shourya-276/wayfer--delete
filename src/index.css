@@ -1,3 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
 /* Wayfer Monochrome Design System - Strict Black & White Noir Aesthetic */
 
 :root {
@@ -13,15 +20,15 @@
   --border-focus: #ffffff;
 
   --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --text-muted: #737373;
-  --text-dim: #4a4a4a;
+  --text-secondary: #d4d4d4; /* neutral-300 */
+  --text-muted: #a3a3a3;     /* neutral-400 */
+  --text-dim: #737373;       /* neutral-500 */
 
   --accent-white: #ffffff;
   --accent-black: #000000;
 
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Space Grotesk', var(--font-sans);
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --radius-sm: 6px;
@@ -34,6 +41,56 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.85);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.95);
   --shadow-glow: 0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+/* Global Selection Styling */
+::selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+::-moz-selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Custom Text Utilities */
+.text-gradient-white {
+  background: linear-gradient(180deg, #FFFFFF 0%, #A3A3A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.drop-shadow-glow,
+.text-glow-white {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+}
+
+.eyebrow-pill,
+.badge-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.microcopy,
+.data-label,
+.ticker-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #a3a3a3; /* neutral-400 */
 }
 
 * {
@@ -54,6 +111,7 @@ html {
 body {
   background-color: var(--bg-black);
   color: var(--text-primary);
+  font-family: var(--font-sans);
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
@@ -65,16 +123,41 @@ body {
   background-position: 0 0, -1px -1px, -1px -1px;
 }
 
-/* Typography Helpers */
-h1, h2, h3, h4, h5, h6 {
+/* Typography Scale & Hierarchy */
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
-p {
+p, .body-copy {
+  font-family: var(--font-sans);
   color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+strong, b {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 a {
@@ -101,15 +184,17 @@ a {
   background: #444444;
 }
 
-/* Button System (Strictly B&W) */
+/* Button System (Strictly B&W) - CTA Typographic Hierarchy */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   padding: 10px 20px;
   border-radius: var(--radius-md);
   border: 1px solid transparent;

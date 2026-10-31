@@ -46,30 +46,30 @@ export default function PolicyFaq() {
       }}>
         <div className="card" style={{ padding: '24px' }}>
           <Database size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
-          <h3 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '8px' }}>
+          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
             Data Purge Standards
           </h3>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
             All telematics, active sessions, and profile records are sanitized across distributed clusters using cryptographic shredding.
           </p>
         </div>
 
         <div className="card" style={{ padding: '24px' }}>
           <ShieldCheck size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
-          <h3 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '8px' }}>
+          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
             GDPR & CCPA Rights
           </h3>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
-            Fully satisfies the Right to Erasure (Article 17 GDPR) and the California Consumer Privacy Act (CCPA) erasure requirements.
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
+            Fully satisfies the Right to Erasure (<strong className="text-white font-semibold">Article 17 GDPR</strong>) and the California Consumer Privacy Act (<strong className="text-white font-semibold">CCPA</strong>) erasure requirements.
           </p>
         </div>
 
         <div className="card" style={{ padding: '24px' }}>
           <FileText size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
-          <h3 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '8px' }}>
+          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
             Audit Log Certification
           </h3>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
             A permanent pseudonymized deletion certificate is recorded in compliance ledger files for verification purposes.
           </p>
         </div>
@@ -86,7 +86,7 @@ export default function PolicyFaq() {
           paddingBottom: '16px'
         }}>
           <HelpCircle size={22} color="#ffffff" />
-          <h2 style={{ fontSize: '1.4rem', fontWeight: '800' }}>
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-tight">
             Frequently Asked Questions
           </h2>
         </div>
@@ -117,12 +117,10 @@ export default function PolicyFaq() {
                     background: 'transparent',
                     border: 'none',
                     color: '#ffffff',
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.96rem',
-                    fontWeight: '600',
                     cursor: 'pointer',
                     textAlign: 'left'
                   }}
+                  className="text-sm sm:text-base font-bold text-white tracking-tight"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
@@ -135,15 +133,12 @@ export default function PolicyFaq() {
                   />
                 </button>
                 {isOpen && (
-                  <div style={{
-                    padding: '0 20px 18px 20px',
-                    fontSize: '0.88rem',
-                    color: 'var(--text-secondary)',
-                    lineHeight: 1.6,
-                    borderTop: '1px solid var(--border-subtle)',
-                    marginTop: '4px',
-                    paddingTop: '14px'
-                  }}>
+                  <div
+                    className="text-sm text-neutral-300 font-normal leading-relaxed border-t border-[var(--border-subtle)]"
+                    style={{
+                      padding: '14px 20px 18px 20px'
+                    }}
+                  >
                     {faq.a}
                   </div>
                 )}
@@ -166,16 +161,16 @@ export default function PolicyFaq() {
           gap: '16px'
         }}>
           <div>
-            <h4 style={{ fontSize: '0.92rem', color: '#ffffff', marginBottom: '2px' }}>
+            <h4 className="font-mono text-xs sm:text-sm uppercase tracking-wider font-bold text-white mb-1">
               Direct Data Protection Officer Inquiry
             </h4>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            <p className="font-mono text-[10px] sm:text-[11px] text-neutral-400">
               Have specific regulatory or compliance queries? Contact our privacy team.
             </p>
           </div>
           <a
             href="mailto:privacy@wayfer.com"
-            className="btn btn-secondary btn-sm"
+            className="btn btn-secondary btn-sm text-xs sm:text-sm font-black uppercase tracking-wider"
             style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
             <Mail size={14} /> privacy@wayfer.com

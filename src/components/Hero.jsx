@@ -36,18 +36,12 @@ export default function Hero({ currentView, setCurrentView }) {
             objectFit: 'contain'
           }} 
         />
-        <span style={{
-          fontFamily: 'var(--font-heading)',
-          fontSize: 'clamp(2.4rem, 4vw, 3.2rem)',
-          fontWeight: '800',
-          letterSpacing: '-0.02em',
-          color: '#ffffff'
-        }}>
+        <span className="text-3xl sm:text-5xl font-black tracking-tight text-white">
           WayFer
         </span>
       </div>
 
-      {/* Brand Tagline Pill */}
+      {/* Brand Eyebrow / Overline Pill Container */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
@@ -55,70 +49,26 @@ export default function Hero({ currentView, setCurrentView }) {
         marginBottom: '26px',
         padding: '0 8px'
       }}>
-        <div 
-          className="hero-tagline-pill"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '8px',
-            padding: '7px 18px',
-            borderRadius: 'var(--radius-full)',
-            backgroundColor: '#0c0c0c',
-            border: '1px solid var(--border-strong)',
-            boxShadow: 'var(--shadow-sm)',
-            maxWidth: '100%'
-          }}
-        >
-          <span 
-            className="hero-tagline-text"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.82rem',
-              fontWeight: '700',
-              letterSpacing: '0.08em',
-              color: '#ffffff',
-              whiteSpace: 'nowrap'
-            }}
-          >
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md">
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold text-white">
             MATCH ➔ MEET ➔ RIDE
           </span>
-          <span style={{ color: 'var(--border-strong)' }}>|</span>
-          <span 
-            className="hero-tagline-text"
-            style={{
-              fontSize: '0.82rem',
-              color: 'var(--text-secondary)',
-              whiteSpace: 'nowrap'
-            }}
-          >
+          <span className="text-white/20">|</span>
+          <span className="font-mono text-[10px] sm:text-[11px] text-neutral-400">
             Ride sharing, made simple
           </span>
         </div>
       </div>
 
-      {/* Main Headline */}
-      <h1 style={{
-        fontSize: 'clamp(2.2rem, 5vw, 3.8rem)',
-        lineHeight: 1.15,
-        fontWeight: '800',
-        maxWidth: '920px',
-        margin: '0 auto 18px auto',
-        letterSpacing: '-0.03em'
-      }}>
-        Account & Data Erasure Portal
+      {/* Main Headline H1 */}
+      <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-[3.65rem] font-black tracking-tight leading-[1.1] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] max-w-4xl mx-auto mb-5">
+        <span>Account & Data</span>{' '}
+        <span className="text-gradient-white">Erasure Portal</span>
       </h1>
 
-      {/* Subtitle */}
-      <p style={{
-        fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-        color: 'var(--text-secondary)',
-        maxWidth: '740px',
-        margin: '0 auto 36px auto',
-        lineHeight: 1.6
-      }}>
-        Initiate permanent deletion of your Wayfer account, ride history, location telemetry, and stored preferences. Compliant with Google Play & Apple App Store account deletion mandates.
+      {/* Subtitle / Body Copy */}
+      <p className="text-sm sm:text-base lg:text-lg text-neutral-300 font-normal leading-relaxed max-w-2xl mx-auto mb-9">
+        Initiate permanent deletion of your <strong className="text-white font-semibold">Wayfer account</strong>, ride history, location telemetry, and stored preferences. Compliant with <strong className="text-white font-semibold">Google Play</strong> & <strong className="text-white font-semibold">Apple App Store</strong> account deletion mandates.
       </p>
 
       {/* Quick Navigation Action Tabs */}
@@ -136,14 +86,14 @@ export default function Hero({ currentView, setCurrentView }) {
       }}>
         <button
           onClick={handleScrollToForm}
-          className={`btn btn-sm ${currentView === 'portal' ? 'btn-primary' : 'btn-ghost'}`}
+          className={`btn btn-sm ${currentView === 'portal' ? 'btn-primary' : 'btn-ghost'} text-xs sm:text-sm font-black uppercase tracking-wider`}
           style={{ whiteSpace: 'nowrap' }}
         >
           Submit Deletion Request
         </button>
         <button
           onClick={() => setCurrentView('policy')}
-          className={`btn btn-sm ${currentView === 'policy' ? 'btn-primary' : 'btn-ghost'}`}
+          className={`btn btn-sm ${currentView === 'policy' ? 'btn-primary' : 'btn-ghost'} text-xs sm:text-sm font-black uppercase tracking-wider`}
           style={{ whiteSpace: 'nowrap' }}
         >
           Policy & Retention Timelines
@@ -177,10 +127,12 @@ export default function Hero({ currentView, setCurrentView }) {
             }}>
               <Clock size={16} color="#ffffff" />
             </div>
-            <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>14-Day Grace Window</h2>
+            <h2 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
+              14-Day Grace Window
+            </h2>
           </div>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
-            After submission, your account enters a 14-day deactivation hold before permanent wipe.
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
+            After submission, your account enters a <strong className="text-white font-semibold">14-day deactivation hold</strong> before permanent wipe.
           </p>
         </div>
 
@@ -203,9 +155,11 @@ export default function Hero({ currentView, setCurrentView }) {
             }}>
               <FileCheck size={16} color="#ffffff" />
             </div>
-            <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>Complete Data Scrub</h2>
+            <h2 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
+              Complete Data Scrub
+            </h2>
           </div>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
             Profiles, route histories, telemetry logs, saved addresses, and payment tokens are completely expunged.
           </p>
         </div>
@@ -229,9 +183,11 @@ export default function Hero({ currentView, setCurrentView }) {
             }}>
               <KeyRound size={16} color="#ffffff" />
             </div>
-            <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>Privacy Regulations</h2>
+            <h2 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
+              Privacy Regulations
+            </h2>
           </div>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
             Strict compliance with Google Play Store, Apple App Store Guidelines, and global data privacy mandates.
           </p>
         </div>

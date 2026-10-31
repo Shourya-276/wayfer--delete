@@ -115,27 +115,16 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
               <Trash2 size={32} />
             </div>
 
-            <span className="badge badge-solid" style={{ marginBottom: '14px', letterSpacing: '0.1em' }}>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-3.5">
               DELETION SCHEDULED
             </span>
 
-            <h2 style={{
-              fontSize: '1.65rem',
-              fontWeight: '800',
-              marginBottom: '12px',
-              lineHeight: 1.25,
-              color: '#ffffff'
-            }}>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight mb-3">
               Your Account Will Be Deleted
             </h2>
 
-            <p style={{
-              color: '#e5e5e5',
-              fontSize: '0.94rem',
-              lineHeight: 1.6,
-              marginBottom: '20px'
-            }}>
-              Your deletion request for <strong style={{ color: '#ffffff', textDecoration: 'underline' }}>{submittedRequest.email}</strong> has been officially confirmed and queued.
+            <p className="text-sm sm:text-base text-neutral-300 font-normal leading-relaxed mb-5">
+              Your deletion request for <strong className="text-white font-semibold underline">{submittedRequest.email}</strong> has been officially confirmed and queued.
             </p>
 
             <div style={{
@@ -144,18 +133,15 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
               borderRadius: 'var(--radius-md)',
               padding: '16px 18px',
               textAlign: 'left',
-              fontSize: '0.85rem',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.6,
               marginBottom: '22px'
             }}>
-              <div style={{ marginBottom: '6px', color: '#ffffff', fontWeight: '700' }}>
+              <div className="text-xs font-mono uppercase tracking-wider font-bold text-white mb-1.5">
                 Important notice:
               </div>
-              <ul style={{ paddingLeft: '18px', margin: 0 }}>
+              <ul className="text-xs sm:text-sm text-neutral-400 font-normal leading-relaxed pl-4 space-y-1">
                 <li>Your profile and login access are deactivated immediately.</li>
                 <li>All trip histories, saved locations, and personal telemetry will be permanently wiped.</li>
-                <li>Your account is in a <strong>14-day hold period</strong> until <strong>{new Date(submittedRequest.gracePeriodEndsAt).toLocaleDateString()}</strong> before irreversible erasure.</li>
+                <li>Your account is in a <strong className="text-white font-semibold">14-day hold period</strong> until <strong className="text-white font-semibold">{new Date(submittedRequest.gracePeriodEndsAt).toLocaleDateString()}</strong> before irreversible erasure.</li>
               </ul>
             </div>
 
@@ -167,12 +153,13 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
               border: '1px dashed var(--border-strong)',
               borderRadius: 'var(--radius-md)',
               padding: '10px 16px',
-              marginBottom: '24px',
-              fontSize: '0.82rem'
+              marginBottom: '24px'
             }}>
-              <span style={{ color: 'var(--text-muted)' }}>Audit Reference:</span>
+              <span className="font-mono text-[10px] sm:text-[11px] text-neutral-400 uppercase tracking-wider">
+                Audit Reference:
+              </span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#ffffff' }}>
+                <span className="font-mono text-xs sm:text-sm font-bold text-white tracking-wider">
                   {submittedRequest.id}
                 </span>
                 <button
@@ -189,7 +176,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
 
             <button
               onClick={handleClosePopup}
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg text-xs sm:text-sm font-black uppercase tracking-wider"
               style={{ width: '100%' }}
             >
               Understood, Close
@@ -208,10 +195,10 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
         marginBottom: '28px'
       }}>
         <div>
-          <h2 style={{ fontSize: '1.45rem', fontWeight: '800', marginBottom: '4px' }}>
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight mb-1">
             Request Account & Data Deletion
           </h2>
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
             Complete the form below to initiate account removal. All requests are processed securely.
           </p>
         </div>
@@ -229,21 +216,14 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           gap: '12px'
         }}>
           <AlertTriangle size={18} color="#ffffff" />
-          <span style={{ fontSize: '0.88rem', color: '#ffffff' }}>{errorMessage}</span>
+          <span className="text-sm font-medium text-white">{errorMessage}</span>
         </div>
       )}
 
       <form onSubmit={handleSubmit}>
         {/* Section 1: Identity Information */}
         <div style={{ marginBottom: '28px' }}>
-          <h3 style={{
-            fontSize: '0.85rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: '#ffffff',
-            marginBottom: '16px',
-            fontFamily: 'var(--font-heading)'
-          }}>
+          <h3 className="font-mono text-[11px] sm:text-xs uppercase tracking-widest font-bold text-white mb-4">
             1. Account Verification Details
           </h3>
 
@@ -253,12 +233,14 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
             gap: '18px'
           }}>
             <div className="form-group">
-              <label className="form-label" htmlFor="fullName">Full Legal Name *</label>
+              <label className="form-label font-mono text-[11px] uppercase tracking-wider font-bold text-neutral-400" htmlFor="fullName">
+                Full Legal Name *
+              </label>
               <input
                 id="fullName"
                 name="fullName"
                 type="text"
-                className="form-input"
+                className="form-input text-sm text-white"
                 placeholder="e.g. Alex Vance"
                 value={formData.fullName}
                 onChange={handleChange}
@@ -267,18 +249,20 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
             </div>
 
             <div className="form-group">
-              <label className="form-label" htmlFor="email">Registered Email Address *</label>
+              <label className="form-label font-mono text-[11px] uppercase tracking-wider font-bold text-neutral-400" htmlFor="email">
+                Registered Email Address *
+              </label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                className="form-input"
+                className="form-input text-sm text-white"
                 placeholder="email@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
-              <span style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px', display: 'block' }}>
+              <span className="font-mono text-[10px] sm:text-[11px] text-neutral-500 mt-1 block">
                 Must match the email linked to your Wayfer app account.
               </span>
             </div>
@@ -287,23 +271,18 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
 
         {/* Section 2: Reason */}
         <div style={{ marginBottom: '28px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
-          <h3 style={{
-            fontSize: '0.85rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: '#ffffff',
-            marginBottom: '16px',
-            fontFamily: 'var(--font-heading)'
-          }}>
+          <h3 className="font-mono text-[11px] sm:text-xs uppercase tracking-widest font-bold text-white mb-4">
             2. Reason for Leaving
           </h3>
 
           <div className="form-group">
-            <label className="form-label" htmlFor="reason">Reason for Account Deletion</label>
+            <label className="form-label font-mono text-[11px] uppercase tracking-wider font-bold text-neutral-400" htmlFor="reason">
+              Reason for Account Deletion
+            </label>
             <textarea
               id="reason"
               name="reason"
-              className="form-textarea"
+              className="form-textarea text-sm text-white"
               rows={3}
               placeholder="Please tell us your reason for leaving Wayfer..."
               value={formData.reason}
@@ -312,7 +291,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           </div>
         </div>
 
-        {/* Section 4: Acknowledgements */}
+        {/* Section 3: Acknowledgements */}
         <div style={{
           backgroundColor: '#0a0a0a',
           border: '1px solid var(--border-strong)',
@@ -320,16 +299,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           padding: '20px',
           marginBottom: '28px'
         }}>
-          <h3 style={{
-            fontSize: '0.85rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: '#ffffff',
-            marginBottom: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}>
+          <h3 className="font-mono text-[11px] sm:text-xs uppercase tracking-widest font-bold text-white mb-3.5 flex items-center gap-2">
             <ShieldAlert size={16} /> Legal Acknowledgements & Consent
           </h3>
 
@@ -343,7 +313,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
                 className="form-checkbox"
                 required
               />
-              <span>
+              <span className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
                 I understand that deleting my account permanently removes all ride receipts, rewards, saved addresses, and cannot be reversed after completion.
               </span>
             </label>
@@ -357,8 +327,8 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
                 className="form-checkbox"
                 required
               />
-              <span>
-                I acknowledge the mandatory <strong>14-day hold period</strong>, during which I can cancel this request at any time using my reference code.
+              <span className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
+                I acknowledge the mandatory <strong className="text-white font-semibold">14-day hold period</strong>, during which I can cancel this request at any time using my reference code.
               </span>
             </label>
           </div>
@@ -369,7 +339,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn btn-primary btn-lg"
+            className="btn btn-primary btn-lg text-xs sm:text-sm font-black uppercase tracking-wider"
             style={{ width: '100%', maxWidth: '320px' }}
           >
             {isSubmitting ? 'Processing Submission...' : 'Submit Deletion Request'}
