@@ -76,13 +76,6 @@ export default function Hero({ currentView, setCurrentView }) {
           Submit Deletion Request
         </button>
         <button
-          onClick={() => setCurrentView('track')}
-          className={`btn btn-sm ${currentView === 'track' ? 'btn-primary' : 'btn-ghost'}`}
-          style={{ whiteSpace: 'nowrap' }}
-        >
-          Track Reference Code
-        </button>
-        <button
           onClick={() => setCurrentView('policy')}
           className={`btn btn-sm ${currentView === 'policy' ? 'btn-primary' : 'btn-ghost'}`}
           style={{ whiteSpace: 'nowrap' }}
@@ -121,7 +114,7 @@ export default function Hero({ currentView, setCurrentView }) {
             <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>14-Day Grace Window</h2>
           </div>
           <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
-            After submission, your account enters a 14-day deactivation hold. You can cancel at any time before permanent wipe.
+            After submission, your account enters a 14-day deactivation hold before permanent wipe.
           </p>
         </div>
 
@@ -147,7 +140,7 @@ export default function Hero({ currentView, setCurrentView }) {
             <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>Complete Data Scrub</h2>
           </div>
           <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
-            Profiles, route histories, telemetry logs, saved addresses, and payment tokens are completely expunged from primary storage.
+            Profiles, route histories, telemetry logs, saved addresses, and payment tokens are completely expunged.
           </p>
         </div>
 
@@ -170,10 +163,10 @@ export default function Hero({ currentView, setCurrentView }) {
             }}>
               <KeyRound size={16} color="#ffffff" />
             </div>
-            <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>Unique Audit Tracking</h2>
+            <h2 style={{ fontSize: '1rem', fontWeight: '700' }}>Privacy Regulations</h2>
           </div>
           <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
-            Every request generates a verifiable cryptographic reference number to track verification and purge progress.
+            Strict compliance with Google Play Store, Apple App Store Guidelines, and global data privacy mandates.
           </p>
         </div>
       </div>

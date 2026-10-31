@@ -87,15 +87,6 @@ export default function Footer({ setCurrentView }) {
             </li>
             <li>
               <button
-                onClick={() => handleNavClick('track')}
-                className="btn-ghost"
-                style={{ padding: 0, textAlign: 'left', color: 'var(--text-secondary)' }}
-              >
-                Track Request Status
-              </button>
-            </li>
-            <li>
-              <button
                 onClick={() => handleNavClick('policy')}
                 className="btn-ghost"
                 style={{ padding: 0, textAlign: 'left', color: 'var(--text-secondary)' }}
@@ -126,7 +117,7 @@ export default function Footer({ setCurrentView }) {
           </div>
         </div>
 
-        {/* Column 4: Admin Access */}
+        {/* Column 4: Privacy Office */}
         <div>
           <h4 style={{
             fontSize: '0.78rem',
@@ -136,19 +127,14 @@ export default function Footer({ setCurrentView }) {
             color: '#ffffff',
             marginBottom: '14px'
           }}>
-            Internal Administration
+            Privacy Office
           </h4>
-          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
-            Restricted access for Wayfer compliance officers and support admins.
+          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '8px' }}>
+            Questions regarding data erasure and retention schedules may be directed to our data protection officer.
           </p>
-          <button
-            onClick={() => handleNavClick('admin')}
-            className="btn btn-secondary btn-sm"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-          >
-            <Lock size={12} />
-            <span>Admin Portal (/admin)</span>
-          </button>
+          <span style={{ fontSize: '0.82rem', color: '#ffffff', fontFamily: 'var(--font-mono)' }}>
+            privacy@wayfer.com
+          </span>
         </div>
       </div>
 

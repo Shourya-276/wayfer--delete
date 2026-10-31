@@ -113,18 +113,6 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
             Submit Request
           </button>
           <button
-            onClick={() => handleNavClick('track')}
-            className={`btn-ghost btn-sm ${currentView === 'track' ? 'active-nav-link' : ''}`}
-            style={{
-              color: currentView === 'track' ? '#ffffff' : 'var(--text-secondary)',
-              borderBottom: currentView === 'track' ? '1px solid #ffffff' : '1px solid transparent',
-              borderRadius: 0,
-              padding: '6px 2px'
-            }}
-          >
-            Track Request
-          </button>
-          <button
             onClick={() => handleNavClick('policy')}
             className={`btn-ghost btn-sm ${currentView === 'policy' ? 'active-nav-link' : ''}`}
             style={{
@@ -138,38 +126,12 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
           </button>
         </nav>
 
-        {/* Right CTA */}
+        {/* Right CTA / Mobile Toggle */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           gap: '12px'
         }}>
-          <button
-            onClick={() => handleNavClick('admin')}
-            className={currentView === 'admin' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm'}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem'
-            }}
-            title="Wayfer Admin Portal (/admin)"
-          >
-            <Lock size={14} />
-            <span>Admin Panel</span>
-            {isAdminAuthenticated && (
-              <span style={{
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                backgroundColor: '#ffffff',
-                display: 'inline-block',
-                marginLeft: '2px'
-              }} />
-            )}
-          </button>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -200,26 +162,11 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
             Submit Deletion Request
           </button>
           <button
-            onClick={() => handleNavClick('track')}
-            className="btn btn-ghost"
-            style={{ justifyContent: 'flex-start', width: '100%' }}
-          >
-            Track Existing Request
-          </button>
-          <button
             onClick={() => handleNavClick('policy')}
             className="btn btn-ghost"
             style={{ justifyContent: 'flex-start', width: '100%' }}
           >
             Retention Policy & FAQ
-          </button>
-          <button
-            onClick={() => handleNavClick('admin')}
-            className="btn btn-secondary"
-            style={{ justifyContent: 'flex-start', width: '100%' }}
-          >
-            <Lock size={14} />
-            Admin Login (/admin)
           </button>
         </div>
       )}

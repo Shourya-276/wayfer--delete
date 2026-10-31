@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { addRequest } from '../utils/storage';
-import { CheckCircle2, AlertTriangle, Copy, Check, ArrowRight, ShieldAlert, Sparkles } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, Copy, Check, ShieldAlert, Trash2, X, AlertOctagon } from 'lucide-react';
 
 export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack }) {
   const [formData, setFormData] = useState({
@@ -71,147 +71,160 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (submittedRequest) {
-    return (
-      <div className="card animate-fade-in" style={{
-        maxWidth: '720px',
-        margin: '20px auto 60px auto',
-        padding: '36px 32px',
-        textAlign: 'center',
-        border: '1px solid #ffffff',
-        boxShadow: 'var(--shadow-glow)'
-      }}>
+  const handleClosePopup = () => {
+    setSubmittedRequest(null);
+    setFormData({
+      fullName: '',
+      email: '',
+      scope: 'all',
+      reasonCategory: 'No longer using the service',
+      reasonDetails: '',
+      agreeTerms: false,
+      agreeGracePeriod: false
+    });
+  };
+
+  return (
+    <>
+      {/* Account Deletion Scheduled Confirmation Pop-up Modal */}
+      {submittedRequest && (
         <div style={{
-          width: '58px',
-          height: '58px',
-          borderRadius: '50%',
-          backgroundColor: '#ffffff',
-          color: '#000000',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.88)',
+          backdropFilter: 'blur(10px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '0 auto 20px auto'
+          zIndex: 1000,
+          padding: '20px'
         }}>
-          <CheckCircle2 size={32} />
-        </div>
-
-        <span className="badge badge-solid" style={{ marginBottom: '14px' }}>
-          REQUEST LOGGED SUCCESSFULLY
-        </span>
-
-        <h2 style={{ fontSize: '1.8rem', marginBottom: '12px', fontWeight: '800' }}>
-          Deletion Request Queued
-        </h2>
-
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', maxWidth: '520px', margin: '0 auto 24px auto' }}>
-          Your request has been officially logged in the Wayfer Data Erasure queue. A verification link has been recorded for <strong style={{ color: '#ffffff' }}>{submittedRequest.email}</strong>.
-        </p>
-
-        {/* Reference Box */}
-        <div style={{
-          backgroundColor: '#0a0a0a',
-          border: '1px solid var(--border-strong)',
-          borderRadius: 'var(--radius-md)',
-          padding: '20px',
-          maxWidth: '440px',
-          margin: '0 auto 28px auto',
-          textAlign: 'center'
-        }}>
-          <span style={{
-            fontSize: '0.72rem',
-            fontFamily: 'var(--font-heading)',
-            textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-            color: 'var(--text-muted)',
-            display: 'block',
-            marginBottom: '6px'
+          <div className="card animate-fade-in" style={{
+            maxWidth: '560px',
+            width: '100%',
+            padding: '36px 30px',
+            textAlign: 'center',
+            border: '2px solid #ffffff',
+            boxShadow: '0 0 35px rgba(255, 255, 255, 0.25)',
+            position: 'relative',
+            backgroundColor: '#0a0a0a'
           }}>
-            Your Audit Reference Code
-          </span>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px'
-          }}>
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '1.5rem',
-              fontWeight: '700',
-              letterSpacing: '0.08em',
+            <button
+              onClick={handleClosePopup}
+              className="btn btn-ghost btn-sm"
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                padding: '6px',
+                color: 'var(--text-muted)'
+              }}
+              aria-label="Close dialog"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Icon */}
+            <div style={{
+              width: '64px',
+              height: '64px',
+              borderRadius: '50%',
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto 18px auto',
+              boxShadow: '0 0 20px rgba(255, 255, 255, 0.35)'
+            }}>
+              <Trash2 size={32} />
+            </div>
+
+            <span className="badge badge-solid" style={{ marginBottom: '14px', letterSpacing: '0.1em' }}>
+              DELETION SCHEDULED
+            </span>
+
+            <h2 style={{
+              fontSize: '1.65rem',
+              fontWeight: '800',
+              marginBottom: '12px',
+              lineHeight: 1.25,
               color: '#ffffff'
             }}>
-              {submittedRequest.id}
-            </span>
+              Your Account Will Be Deleted
+            </h2>
+
+            <p style={{
+              color: '#e5e5e5',
+              fontSize: '0.94rem',
+              lineHeight: 1.6,
+              marginBottom: '20px'
+            }}>
+              Your deletion request for <strong style={{ color: '#ffffff', textDecoration: 'underline' }}>{submittedRequest.email}</strong> has been officially confirmed and queued.
+            </p>
+
+            <div style={{
+              backgroundColor: '#121212',
+              border: '1px solid var(--border-medium)',
+              borderRadius: 'var(--radius-md)',
+              padding: '16px 18px',
+              textAlign: 'left',
+              fontSize: '0.85rem',
+              color: 'var(--text-secondary)',
+              lineHeight: 1.6,
+              marginBottom: '22px'
+            }}>
+              <div style={{ marginBottom: '6px', color: '#ffffff', fontWeight: '700' }}>
+                Important notice:
+              </div>
+              <ul style={{ paddingLeft: '18px', margin: 0 }}>
+                <li>Your profile and login access are deactivated immediately.</li>
+                <li>All trip histories, saved locations, and personal telemetry will be permanently wiped.</li>
+                <li>Your account is in a <strong>14-day hold period</strong> until <strong>{new Date(submittedRequest.gracePeriodEndsAt).toLocaleDateString()}</strong> before irreversible erasure.</li>
+              </ul>
+            </div>
+
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: '#050505',
+              border: '1px dashed var(--border-strong)',
+              borderRadius: 'var(--radius-md)',
+              padding: '10px 16px',
+              marginBottom: '24px',
+              fontSize: '0.82rem'
+            }}>
+              <span style={{ color: 'var(--text-muted)' }}>Audit Reference:</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#ffffff' }}>
+                  {submittedRequest.id}
+                </span>
+                <button
+                  type="button"
+                  onClick={handleCopyCode}
+                  className="btn-ghost"
+                  style={{ padding: '2px 4px', cursor: 'pointer' }}
+                  title="Copy reference code"
+                >
+                  {copied ? <Check size={14} color="#ffffff" /> : <Copy size={14} color="var(--text-muted)" />}
+                </button>
+              </div>
+            </div>
+
             <button
-              onClick={handleCopyCode}
-              className="btn btn-secondary btn-sm"
-              title="Copy to clipboard"
-              style={{ padding: '6px 10px' }}
+              onClick={handleClosePopup}
+              className="btn btn-primary btn-lg"
+              style={{ width: '100%' }}
             >
-              {copied ? <Check size={14} color="#ffffff" /> : <Copy size={14} />}
+              Understood, Close
             </button>
           </div>
         </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '12px',
-          textAlign: 'left',
-          backgroundColor: '#121212',
-          padding: '16px',
-          borderRadius: 'var(--radius-md)',
-          marginBottom: '28px',
-          fontSize: '0.85rem',
-          border: '1px solid var(--border-medium)'
-        }}>
-          <div>
-            <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Full Name</span>
-            <strong style={{ color: '#ffffff' }}>{submittedRequest.fullName}</strong>
-          </div>
-          <div>
-            <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Scope</span>
-            <strong style={{ color: '#ffffff' }}>{submittedRequest.scopeLabel}</strong>
-          </div>
-          <div>
-            <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Status</span>
-            <span className="badge badge-outline" style={{ fontSize: '0.7rem' }}>{submittedRequest.status}</span>
-          </div>
-          <div>
-            <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>14-Day Hold Until</span>
-            <strong style={{ color: '#ffffff' }}>{new Date(submittedRequest.gracePeriodEndsAt).toLocaleDateString()}</strong>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => onNavigateToTrack(submittedRequest.id)}
-            className="btn btn-primary"
-          >
-            Track Status Now <ArrowRight size={16} />
-          </button>
-          <button
-            onClick={() => {
-              setSubmittedRequest(null);
-              setFormData({
-                fullName: '',
-                email: '',
-                scope: 'all',
-                reasonCategory: 'No longer using the service',
-                reasonDetails: '',
-                agreeTerms: false,
-                agreeGracePeriod: false
-              });
-            }}
-            className="btn btn-secondary"
-          >
-            Submit Another Request
-          </button>
-        </div>
-      </div>
-    );
-  }
+      )}
 
   return (
     <div className="card" style={{
@@ -522,5 +535,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
         </div>
       </form>
     </div>
+  </>
   );
 }
