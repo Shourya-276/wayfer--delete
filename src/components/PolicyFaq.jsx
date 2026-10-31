@@ -39,12 +39,12 @@ export default function PolicyFaq() {
     }}>
       {/* Policy Highlights */}
       <div style={{ marginBottom: '28px' }}>
-        <div className="card" style={{ padding: '24px' }}>
-          <ShieldCheck size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
-          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
+        <div className="card text-center flex flex-col items-center" style={{ padding: '28px 24px' }}>
+          <ShieldCheck size={28} color="#ffffff" style={{ marginBottom: '12px' }} />
+          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2 text-center">
             GDPR & CCPA Rights
           </h3>
-          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
+          <p className="text-sm text-neutral-400 font-normal leading-relaxed text-center max-w-xl mx-auto">
             Fully satisfies the Right to Erasure (<strong className="text-white font-semibold">Article 17 GDPR</strong>) and the California Consumer Privacy Act (<strong className="text-white font-semibold">CCPA</strong>) erasure requirements.
           </p>
         </div>
@@ -52,16 +52,9 @@ export default function PolicyFaq() {
 
       {/* Accordion FAQs */}
       <div className="card" style={{ padding: '32px' }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          marginBottom: '24px',
-          borderBottom: '1px solid var(--border-medium)',
-          paddingBottom: '16px'
-        }}>
+        <div className="flex items-center justify-center gap-3 mb-6 pb-4 border-b border-[var(--border-medium)] text-center">
           <HelpCircle size={22} color="#ffffff" />
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-tight text-center">
             Frequently Asked Questions
           </h2>
         </div>

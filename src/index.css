@@ -622,3 +622,47 @@ input[type="radio"],
     padding: 12px 10px !important;
   }
 }
+
+/* ====================================================
+   HERO TEXT CENTERING & LARGE DISPLAY OPTIMIZATIONS
+   ==================================================== */
+.hero-section {
+  text-align: center;
+}
+
+.hero-section h1,
+.hero-section p {
+  text-align: center !important;
+}
+
+/* Large Displays (1280px - 1536px) */
+@media (min-width: 1280px) {
+  .hero-section {
+    padding-top: 76px !important;
+    padding-bottom: 50px !important;
+    max-width: 1280px !important;
+  }
+
+  .form-card {
+    max-width: 840px !important;
+    padding: 42px 38px !important;
+  }
+}
+
+/* Extra-Large / Ultra-Wide Displays (1536px - 2560px+) */
+@media (min-width: 1536px) {
+  .hero-section {
+    padding-top: 88px !important;
+    padding-bottom: 56px !important;
+    max-width: 1380px !important;
+  }
+
+  .form-card {
+    max-width: 880px !important;
+    padding: 48px 44px !important;
+  }
+
+  .card {
+    border-radius: var(--radius-xl);
+  }
+}

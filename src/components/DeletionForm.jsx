@@ -186,22 +186,13 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
       )}
 
     <div id="deletion-form" className="card form-card" style={{ scrollMarginTop: '100px' }}>
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderBottom: '1px solid var(--border-medium)',
-        paddingBottom: '20px',
-        marginBottom: '28px'
-      }}>
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight mb-1">
-            Request Account & Data Deletion
-          </h2>
-          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
-            Complete the form below to initiate account removal. All requests are processed securely.
-          </p>
-        </div>
+      <div className="text-center pb-5 mb-7 border-b border-[var(--border-medium)]">
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight mb-1.5 text-center">
+          Request Account & Data Deletion
+        </h2>
+        <p className="text-sm text-neutral-400 font-normal leading-relaxed text-center max-w-lg mx-auto">
+          Complete the form below to initiate account removal. All requests are processed securely.
+        </p>
       </div>
 
       {errorMessage && (
@@ -334,13 +325,13 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           </div>
         </div>
 
-        {/* Submit Button */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '14px', alignItems: 'center' }}>
+        {/* Submit Button - Centralized */}
+        <div className="flex justify-center items-center mt-7">
           <button
             type="submit"
             disabled={isSubmitting}
             className="btn btn-primary btn-lg text-xs sm:text-sm font-black uppercase tracking-wider"
-            style={{ width: '100%', maxWidth: '320px' }}
+            style={{ width: '100%', maxWidth: '340px' }}
           >
             {isSubmitting ? 'Processing Submission...' : 'Submit Deletion Request'}
           </button>
