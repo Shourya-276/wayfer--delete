@@ -2,6 +2,16 @@ import React from 'react';
 import { ShieldCheck, Clock, FileCheck, ArrowRight, KeyRound } from 'lucide-react';
 
 export default function Hero({ currentView, setCurrentView }) {
+  const handleScrollToForm = () => {
+    setCurrentView('portal');
+    setTimeout(() => {
+      const el = document.getElementById('deletion-form');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 60);
+  };
+
   return (
     <section style={{
       padding: '56px 24px 32px 24px',
@@ -125,7 +135,7 @@ export default function Hero({ currentView, setCurrentView }) {
         overflowX: 'auto'
       }}>
         <button
-          onClick={() => setCurrentView('portal')}
+          onClick={handleScrollToForm}
           className={`btn btn-sm ${currentView === 'portal' ? 'btn-primary' : 'btn-ghost'}`}
           style={{ whiteSpace: 'nowrap' }}
         >

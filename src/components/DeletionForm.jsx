@@ -205,7 +205,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
       )}
 
   return (
-    <div className="card form-card">
+    <div id="deletion-form" className="card form-card" style={{ scrollMarginTop: '100px' }}>
       <div style={{
         display: 'flex',
         alignItems: 'center',

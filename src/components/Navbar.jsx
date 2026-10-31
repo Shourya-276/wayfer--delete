@@ -9,8 +9,20 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
     setMobileMenuOpen(false);
     if (viewId === 'admin') {
       window.history.pushState({}, '', '/admin');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (viewId === 'portal') {
+      window.history.pushState({}, '', '/');
+      setTimeout(() => {
+        const el = document.getElementById('deletion-form');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 60);
     } else {
       window.history.pushState({}, '', '/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
