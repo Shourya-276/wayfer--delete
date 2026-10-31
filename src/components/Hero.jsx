@@ -9,27 +9,65 @@ export default function Hero({ currentView, setCurrentView }) {
       margin: '0 auto',
       textAlign: 'center'
     }}>
-      {/* Top Tag */}
+      {/* Brand Logo & Lockup */}
       <div style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '8px',
-        padding: '6px 14px',
-        borderRadius: 'var(--radius-full)',
-        backgroundColor: '#111111',
-        border: '1px solid var(--border-strong)',
-        marginBottom: '24px'
+        justifyContent: 'center',
+        gap: '14px',
+        marginBottom: '16px'
       }}>
-        <ShieldCheck size={14} color="#ffffff" />
+        <img 
+          src="/wayfer-logo.png" 
+          alt="WayFer Pin" 
+          style={{
+            height: '56px',
+            width: 'auto',
+            objectFit: 'contain'
+          }} 
+        />
         <span style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.75rem',
-          color: '#ffffff',
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase'
+          fontFamily: 'var(--font-heading)',
+          fontSize: 'clamp(2.4rem, 4vw, 3.2rem)',
+          fontWeight: '800',
+          letterSpacing: '-0.02em',
+          color: '#ffffff'
         }}>
-          Wayfer Privacy & Data Subject Access Rights (DSAR)
+          WayFer
         </span>
+      </div>
+
+      {/* Brand Tagline Pill */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: '26px'
+      }}>
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '10px',
+          padding: '7px 18px',
+          borderRadius: 'var(--radius-full)',
+          backgroundColor: '#0c0c0c',
+          border: '1px solid var(--border-strong)',
+          boxShadow: 'var(--shadow-sm)'
+        }}>
+          <span style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.82rem',
+            fontWeight: '700',
+            letterSpacing: '0.08em',
+            color: '#ffffff'
+          }}>
+            MATCH ➔ MEET ➔ RIDE
+          </span>
+          <span style={{ color: 'var(--border-strong)' }}>|</span>
+          <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+            Ride sharing, made simple
+          </span>
+        </div>
       </div>
 
       {/* Main Headline */}

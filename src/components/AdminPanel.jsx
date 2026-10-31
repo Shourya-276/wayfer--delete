@@ -229,24 +229,18 @@ export default function AdminPanel({ onExitToSite }) {
           {/* Logo & Header */}
           <div style={{ textAlign: 'center', marginBottom: '28px' }}>
             <div style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '16px',
-              backgroundColor: '#000000',
-              border: '1px solid var(--border-strong)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto 16px auto',
-              overflow: 'hidden'
+              marginBottom: '14px'
             }}>
-              <img src="/wayfer-logo.jpeg" alt="Wayfer Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              <img src="/wayfer-logo.png" alt="WayFer Logo" style={{ height: '52px', width: 'auto', objectFit: 'contain' }} />
             </div>
             <span className="badge badge-outline" style={{ marginBottom: '8px' }}>
               RESTRICTED ACCESS
             </span>
             <h1 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '6px' }}>
-              Admin Control Panel
+              WayFer Admin Control
             </h1>
             <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
               Sign in with administrative credentials to process user data deletion requests.

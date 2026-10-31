@@ -35,27 +35,15 @@ export default function Footer({ setCurrentView }) {
             gap: '12px',
             marginBottom: '14px'
           }}>
-            <div style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '8px',
-              overflow: 'hidden',
-              backgroundColor: '#000000',
-              border: '1px solid var(--border-strong)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <img src="/wayfer-logo.jpeg" alt="Wayfer" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-            </div>
+            <img src="/wayfer-logo.png" alt="WayFer" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
             <span style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '1.15rem',
+              fontSize: '1.2rem',
               fontWeight: '800',
-              letterSpacing: '0.08em',
+              letterSpacing: '-0.01em',
               color: '#ffffff'
             }}>
-              WAYFER
+              WayFer
             </span>
           </div>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '280px' }}>

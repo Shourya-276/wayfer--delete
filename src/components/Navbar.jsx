@@ -43,23 +43,17 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
           }}
         >
           <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            overflow: 'hidden',
-            border: '1px solid var(--border-strong)',
-            backgroundColor: '#000000',
+            height: '38px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 'var(--shadow-sm)'
+            justifyContent: 'center'
           }}>
             <img 
-              src="/wayfer-logo.jpeg" 
-              alt="Wayfer Logo" 
+              src="/wayfer-logo.png" 
+              alt="WayFer Logo" 
               style={{
-                width: '100%',
-                height: '100%',
+                height: '38px',
+                width: 'auto',
                 objectFit: 'contain'
               }} 
             />
@@ -72,12 +66,12 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
             }}>
               <span style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
+                fontSize: '1.3rem',
                 fontWeight: '800',
-                letterSpacing: '0.08em',
+                letterSpacing: '-0.01em',
                 color: '#ffffff'
               }}>
-                WAYFER
+                WayFer
               </span>
               <span className="badge badge-dim" style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
                 DATA & PRIVACY
