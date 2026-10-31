@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ShieldCheck, Database, FileText, HelpCircle, Mail } from 'lucide-react';
+import { ChevronDown, ShieldCheck, HelpCircle, Mail } from 'lucide-react';
 
 export default function PolicyFaq() {
   const [openItem, setOpenItem] = useState(0);
@@ -38,22 +38,7 @@ export default function PolicyFaq() {
       padding: '0 24px'
     }}>
       {/* Policy Highlights */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-        gap: '20px',
-        marginBottom: '40px'
-      }}>
-        <div className="card" style={{ padding: '24px' }}>
-          <Database size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
-          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
-            Secure Data Deletion
-          </h3>
-          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
-            All profile records, trip histories, and active sessions are permanently erased from all our servers.
-          </p>
-        </div>
-
+      <div style={{ marginBottom: '28px' }}>
         <div className="card" style={{ padding: '24px' }}>
           <ShieldCheck size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
           <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
@@ -61,16 +46,6 @@ export default function PolicyFaq() {
           </h3>
           <p className="text-sm text-neutral-400 font-normal leading-relaxed">
             Fully satisfies the Right to Erasure (<strong className="text-white font-semibold">Article 17 GDPR</strong>) and the California Consumer Privacy Act (<strong className="text-white font-semibold">CCPA</strong>) erasure requirements.
-          </p>
-        </div>
-
-        <div className="card" style={{ padding: '24px' }}>
-          <FileText size={24} color="#ffffff" style={{ marginBottom: '14px' }} />
-          <h3 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight mb-2">
-            Audit Log Certification
-          </h3>
-          <p className="text-sm text-neutral-400 font-normal leading-relaxed">
-            A permanent pseudonymized deletion certificate is recorded in compliance ledger files for verification purposes.
           </p>
         </div>
       </div>
