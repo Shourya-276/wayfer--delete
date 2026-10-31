@@ -7,8 +7,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
     fullName: '',
     email: '',
     scope: 'all',
-    reasonCategory: 'No longer using the service',
-    reasonDetails: '',
+    reason: '',
     agreeTerms: false,
     agreeGracePeriod: false
   });
@@ -47,15 +46,11 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
     setErrorMessage('');
 
     setTimeout(() => {
-      const combinedReason = formData.reasonDetails.trim() 
-        ? `${formData.reasonCategory}: ${formData.reasonDetails.trim()}`
-        : formData.reasonCategory;
-
       const created = addRequest({
         fullName: formData.fullName,
         email: formData.email,
         scope: formData.scope,
-        reason: combinedReason
+        reason: formData.reason.trim() || 'Requested by account holder'
       });
 
       setIsSubmitting(false);
@@ -77,8 +72,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
       fullName: '',
       email: '',
       scope: 'all',
-      reasonCategory: 'No longer using the service',
-      reasonDetails: '',
+      reason: '',
       agreeTerms: false,
       agreeGracePeriod: false
     });
@@ -408,33 +402,14 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           </h3>
 
           <div className="form-group">
-            <label className="form-label" htmlFor="reasonCategory">Primary Reason</label>
-            <select
-              id="reasonCategory"
-              name="reasonCategory"
-              className="form-select"
-              value={formData.reasonCategory}
-              onChange={handleChange}
-            >
-              <option value="No longer using the service">No longer using Wayfer</option>
-              <option value="Privacy and location tracking concerns">Privacy & GPS tracking concerns</option>
-              <option value="Switching to another platform">Switching to an alternative platform</option>
-              <option value="Too many notifications or emails">Too many notifications/marketing</option>
-              <option value="Created duplicate account">Duplicate account cleanup</option>
-              <option value="Dissatisfied with application experience">Dissatisfied with app experience</option>
-              <option value="Other reason">Other reason</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label className="form-label" htmlFor="reasonDetails">Additional Feedback (Optional)</label>
+            <label className="form-label" htmlFor="reason">Reason for Account Deletion</label>
             <textarea
-              id="reasonDetails"
-              name="reasonDetails"
+              id="reason"
+              name="reason"
               className="form-textarea"
               rows={3}
-              placeholder="Tell us what we could have done better or specific concerns..."
-              value={formData.reasonDetails}
+              placeholder="Please tell us your reason for leaving Wayfer..."
+              value={formData.reason}
               onChange={handleChange}
             />
           </div>
