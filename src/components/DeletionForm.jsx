@@ -222,9 +222,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
             Complete the form below to initiate account removal. All requests are processed securely.
           </p>
         </div>
-        <span className="badge badge-outline">
-          SECURE 256-BIT SSL
-        </span>
       </div>
 
       {errorMessage && (
