@@ -5,7 +5,6 @@ import DeletionForm from './components/DeletionForm';
 import RequestTracker from './components/RequestTracker';
 import PolicyFaq from './components/PolicyFaq';
 import AdminPanel from './components/AdminPanel';
-import Footer from './components/Footer';
 import { checkAdminAuth } from './utils/storage';
 
 export default function App() {
@@ -106,9 +105,6 @@ export default function App() {
           </>
         )}
       </main>
-
-      {/* Footer */}
-      <Footer setCurrentView={handleViewChange} />
     </div>
   );
 }
