@@ -19,10 +19,15 @@ export default function Hero({ currentView, setCurrentView }) {
         padding: '64px 24px 44px 24px',
         maxWidth: '1280px',
         margin: '0 auto',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
         textAlign: 'center'
       }}
     >
-      {/* Brand Logo & Lockup */}
+      {/* Brand Logo & Lockup - Centered */}
       <div style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -34,7 +39,7 @@ export default function Hero({ currentView, setCurrentView }) {
           src="/wayfer-logo.png" 
           alt="WayFer Pin" 
           style={{
-            height: '58px',
+            height: '56px',
             width: 'auto',
             objectFit: 'contain'
           }} 
@@ -44,8 +49,8 @@ export default function Hero({ currentView, setCurrentView }) {
         </span>
       </div>
 
-      {/* Brand Eyebrow / Overline Pill Container */}
-      <div className="flex items-center justify-center mb-6 px-2 text-center">
+      {/* Brand Eyebrow / Overline Pill Container - Centered */}
+      <div className="flex items-center justify-center mb-6 px-2 text-center w-full">
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 text-white backdrop-blur-md">
           <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold text-white">
             MATCH ➔ MEET ➔ RIDE
@@ -58,18 +63,18 @@ export default function Hero({ currentView, setCurrentView }) {
       </div>
 
       {/* Main Headline H1 - Strictly Centered */}
-      <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-[3.75rem] font-black tracking-tight leading-[1.1] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] max-w-4xl mx-auto mb-5 text-center">
+      <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.15] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] max-w-3xl mx-auto mb-4 text-center">
         <span>Account & Data</span>{' '}
         <span className="text-gradient-white">Erasure Portal</span>
       </h1>
 
       {/* Subtitle / Body Copy - Strictly Centered */}
-      <p className="text-sm sm:text-base lg:text-lg text-neutral-300 font-normal leading-relaxed max-w-3xl mx-auto mb-9 text-center">
+      <p className="text-sm sm:text-base lg:text-lg text-neutral-300 font-normal leading-relaxed max-w-2xl mx-auto mb-8 text-center">
         Initiate permanent deletion of your <strong className="text-white font-semibold">Wayfer account</strong>, ride history, location telemetry, and stored preferences. Compliant with <strong className="text-white font-semibold">Google Play</strong> & <strong className="text-white font-semibold">Apple App Store</strong> account deletion mandates.
       </p>
 
-      {/* Quick Navigation Action Tabs */}
-      <div className="flex justify-center items-center mb-12">
+      {/* Quick Navigation Action Tabs - Strictly Centered */}
+      <div className="flex justify-center items-center mb-10 w-full">
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -99,9 +104,9 @@ export default function Hero({ currentView, setCurrentView }) {
         </div>
       </div>
 
-      {/* Key Guarantees Row - Centered and optimized for big screens */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-10">
-        <div className="card text-center flex flex-col items-center justify-start" style={{ padding: '26px 22px' }}>
+      {/* Key Guarantees Row - Strictly Centered with matching max-w-4xl width */}
+      <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 text-center mt-2">
+        <div className="card text-center flex flex-col items-center justify-start h-full" style={{ padding: '26px 20px' }}>
           <div style={{
             width: '42px',
             height: '42px',
@@ -123,7 +128,7 @@ export default function Hero({ currentView, setCurrentView }) {
           </p>
         </div>
 
-        <div className="card text-center flex flex-col items-center justify-start" style={{ padding: '26px 22px' }}>
+        <div className="card text-center flex flex-col items-center justify-start h-full" style={{ padding: '26px 20px' }}>
           <div style={{
             width: '42px',
             height: '42px',
@@ -145,7 +150,7 @@ export default function Hero({ currentView, setCurrentView }) {
           </p>
         </div>
 
-        <div className="card text-center flex flex-col items-center justify-start" style={{ padding: '26px 22px' }}>
+        <div className="card text-center flex flex-col items-center justify-start h-full" style={{ padding: '26px 20px' }}>
           <div style={{
             width: '42px',
             height: '42px',

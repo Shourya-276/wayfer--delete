@@ -37,13 +37,15 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
       padding: '14px 24px'
     }}>
       <div style={{
-        maxWidth: '1240px',
+        maxWidth: '1280px',
         margin: '0 auto',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        position: 'relative',
+        width: '100%'
       }}>
-        {/* Brand Logo & Name */}
+        {/* Left: Brand Logo & Name */}
         <div 
           onClick={() => handleNavClick('portal')}
           style={{
@@ -51,7 +53,8 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
             alignItems: 'center',
             gap: '14px',
             cursor: 'pointer',
-            userSelect: 'none'
+            userSelect: 'none',
+            zIndex: 2
           }}
         >
           <div style={{
@@ -89,20 +92,23 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
           </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav style={{
-          display: 'none',
-          alignItems: 'center',
-          gap: '28px'
-        }} className="desktop-nav">
+        {/* Center: Desktop Navigation - Strictly Centralized */}
+        <nav 
+          style={{
+            alignItems: 'center',
+            gap: '32px'
+          }} 
+          className="desktop-nav"
+        >
           <button
             onClick={() => handleNavClick('portal')}
             className={`btn-ghost btn-sm text-xs sm:text-sm font-black uppercase tracking-wider ${currentView === 'portal' ? 'active-nav-link' : ''}`}
             style={{
               color: currentView === 'portal' ? '#ffffff' : 'var(--text-secondary)',
-              borderBottom: currentView === 'portal' ? '1px solid #ffffff' : '1px solid transparent',
+              borderBottom: currentView === 'portal' ? '2px solid #ffffff' : '2px solid transparent',
               borderRadius: 0,
-              padding: '6px 2px'
+              padding: '6px 4px',
+              transition: 'all 0.2s ease'
             }}
           >
             Submit Request
@@ -112,21 +118,51 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
             className={`btn-ghost btn-sm text-xs sm:text-sm font-black uppercase tracking-wider ${currentView === 'policy' ? 'active-nav-link' : ''}`}
             style={{
               color: currentView === 'policy' ? '#ffffff' : 'var(--text-secondary)',
-              borderBottom: currentView === 'policy' ? '1px solid #ffffff' : '1px solid transparent',
+              borderBottom: currentView === 'policy' ? '2px solid #ffffff' : '2px solid transparent',
               borderRadius: 0,
-              padding: '6px 2px'
+              padding: '6px 4px',
+              transition: 'all 0.2s ease'
             }}
           >
             Retention Policy & FAQ
           </button>
         </nav>
 
-        {/* Right CTA / Mobile Toggle */}
+        {/* Right: Security Status Pill & Mobile Toggle */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '12px'
+          gap: '12px',
+          zIndex: 2
         }}>
+          {/* Desktop Status Pill */}
+          <div 
+            className="desktop-status-badge"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              borderRadius: '9999px',
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              color: '#d4d4d4',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase'
+            }}
+          >
+            <span style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              backgroundColor: '#ffffff',
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.8)'
+            }} />
+            <span>PORTAL SECURE</span>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -176,12 +212,30 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
       )}
 
       <style>{`
-        @media (min-width: 768px) {
+        @media (min-width: 860px) {
           .desktop-nav {
             display: flex !important;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .desktop-status-badge {
+            display: inline-flex !important;
           }
           .mobile-menu-btn {
             display: none !important;
+          }
+        }
+        @media (max-width: 859px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .desktop-status-badge {
+            display: none !important;
+          }
+          .mobile-menu-btn {
+            display: flex !important;
           }
         }
       `}</style>

@@ -627,39 +627,56 @@ input[type="radio"],
    HERO TEXT CENTERING & LARGE DISPLAY OPTIMIZATIONS
    ==================================================== */
 .hero-section {
-  text-align: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .hero-section h1,
 .hero-section p {
   text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Large Displays (1280px - 1536px) */
 @media (min-width: 1280px) {
   .hero-section {
-    padding-top: 76px !important;
-    padding-bottom: 50px !important;
-    max-width: 1280px !important;
+    padding-top: 72px !important;
+    padding-bottom: 48px !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .form-card {
-    max-width: 840px !important;
+    max-width: 820px !important;
     padding: 42px 38px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
 /* Extra-Large / Ultra-Wide Displays (1536px - 2560px+) */
 @media (min-width: 1536px) {
   .hero-section {
-    padding-top: 88px !important;
-    padding-bottom: 56px !important;
-    max-width: 1380px !important;
+    padding-top: 84px !important;
+    padding-bottom: 54px !important;
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .form-card {
-    max-width: 880px !important;
-    padding: 48px 44px !important;
+    max-width: 860px !important;
+    padding: 46px 42px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .card {
