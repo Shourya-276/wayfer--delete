@@ -121,7 +121,7 @@ export function addRequest(formData) {
     id: newId,
     fullName: formData.fullName.trim(),
     email: formData.email.trim().toLowerCase(),
-    phone: formData.phone.trim(),
+    phone: formData.phone?.trim() || 'Not specified',
     userId: formData.userId?.trim() || `WF-GUEST-${Math.floor(1000 + Math.random() * 9000)}`,
     scope: formData.scope || 'all',
     scopeLabel: scopeLabels[formData.scope] || 'Complete Account & All Data Erasure',

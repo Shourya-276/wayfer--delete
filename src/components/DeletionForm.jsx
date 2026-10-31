@@ -6,8 +6,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phone: '',
-    userId: '',
     scope: 'all',
     reasonCategory: 'No longer using the service',
     reasonDetails: '',
@@ -40,10 +38,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
       setErrorMessage('Please provide a valid email address.');
       return;
     }
-    if (!formData.phone.trim()) {
-      setErrorMessage('Please provide your registered phone number.');
-      return;
-    }
     if (!formData.agreeTerms || !formData.agreeGracePeriod) {
       setErrorMessage('Please confirm both acknowledgements to proceed with deletion.');
       return;
@@ -60,8 +54,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
       const created = addRequest({
         fullName: formData.fullName,
         email: formData.email,
-        phone: formData.phone,
-        userId: formData.userId,
         scope: formData.scope,
         reason: combinedReason
       });
@@ -205,8 +197,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
               setFormData({
                 fullName: '',
                 email: '',
-                phone: '',
-                userId: '',
                 scope: 'all',
                 reasonCategory: 'No longer using the service',
                 reasonDetails: '',
@@ -314,33 +304,6 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
               <span style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px', display: 'block' }}>
                 Must match the email linked to your Wayfer app account.
               </span>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label" htmlFor="phone">Phone Number Linked to Account *</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                className="form-input"
-                placeholder="+1 (555) 000-0000"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label" htmlFor="userId">Wayfer Account / User ID (Optional)</label>
-              <input
-                id="userId"
-                name="userId"
-                type="text"
-                className="form-input"
-                placeholder="e.g. WF-US-8924 (Found in app settings)"
-                value={formData.userId}
-                onChange={handleChange}
-              />
             </div>
           </div>
         </div>

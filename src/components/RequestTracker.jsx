@@ -295,10 +295,12 @@ export default function RequestTracker({ initialCode = '' }) {
                 <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Account Email</span>
                 <strong style={{ color: '#ffffff' }}>{result.email}</strong>
               </div>
-              <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Registered Phone</span>
-                <strong style={{ color: '#ffffff' }}>{result.phone}</strong>
-              </div>
+              {result.phone && result.phone !== 'Not specified' && (
+                <div>
+                  <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Registered Phone</span>
+                  <strong style={{ color: '#ffffff' }}>{result.phone}</strong>
+                </div>
+              )}
               <div>
                 <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>Erasure Scope</span>
                 <strong style={{ color: '#ffffff' }}>{result.scopeLabel}</strong>

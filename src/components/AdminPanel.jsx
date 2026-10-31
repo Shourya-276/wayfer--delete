@@ -576,16 +576,20 @@ export default function AdminPanel({ onExitToSite }) {
                     <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#ffffff' }}>
                       {req.id}
                     </span>
-                    <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--text-dim)' }}>
-                      {req.userId}
-                    </span>
+                    {req.userId && !req.userId.startsWith('WF-GUEST-') && (
+                      <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--text-dim)' }}>
+                        {req.userId}
+                      </span>
+                    )}
                   </td>
 
                   {/* Applicant Details */}
                   <td>
                     <strong style={{ color: '#ffffff', display: 'block' }}>{req.fullName}</strong>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>{req.email}</div>
-                    <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)' }}>{req.phone}</div>
+                    {req.phone && req.phone !== 'Not specified' && (
+                      <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)' }}>{req.phone}</div>
+                    )}
                   </td>
 
                   {/* Scope */}
@@ -715,14 +719,18 @@ export default function AdminPanel({ onExitToSite }) {
                 <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.74rem' }}>Email Address</span>
                 <strong style={{ color: '#ffffff' }}>{selectedRequest.email}</strong>
               </div>
-              <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.74rem' }}>Phone Number</span>
-                <strong style={{ color: '#ffffff' }}>{selectedRequest.phone}</strong>
-              </div>
-              <div>
-                <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.74rem' }}>Account / User ID</span>
-                <strong style={{ color: '#ffffff' }}>{selectedRequest.userId}</strong>
-              </div>
+              {selectedRequest.phone && selectedRequest.phone !== 'Not specified' && (
+                <div>
+                  <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.74rem' }}>Phone Number</span>
+                  <strong style={{ color: '#ffffff' }}>{selectedRequest.phone}</strong>
+                </div>
+              )}
+              {selectedRequest.userId && !selectedRequest.userId.startsWith('WF-GUEST-') && (
+                <div>
+                  <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.74rem' }}>Account / User ID</span>
+                  <strong style={{ color: '#ffffff' }}>{selectedRequest.userId}</strong>
+                </div>
+              )}
               <div>
                 <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.74rem' }}>Requested Scope</span>
                 <strong style={{ color: '#ffffff' }}>{selectedRequest.scopeLabel}</strong>
@@ -863,17 +871,6 @@ export default function AdminPanel({ onExitToSite }) {
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Phone Number *</label>
-                <input
-                  type="tel"
-                  className="form-input"
-                  required
-                  value={manualForm.phone}
-                  onChange={(e) => setManualForm({ ...manualForm, phone: e.target.value })}
-                  placeholder="+1 (555) 000-0000"
-                />
-              </div>
 
               <div className="form-group">
                 <label className="form-label">Erasure Scope</label>
