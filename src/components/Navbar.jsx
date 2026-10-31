@@ -129,8 +129,17 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="btn btn-ghost btn-sm mobile-menu-btn"
-            style={{ padding: '8px' }}
+            className="btn btn-ghost mobile-menu-btn"
+            style={{ 
+              minWidth: '42px', 
+              minHeight: '42px', 
+              padding: '8px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--border-medium)'
+            }}
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -146,19 +155,19 @@ export default function Navbar({ currentView, setCurrentView, isAdminAuthenticat
           borderTop: '1px solid var(--border-medium)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '12px'
+          gap: '8px'
         }}>
           <button
             onClick={() => handleNavClick('portal')}
-            className="btn btn-ghost"
-            style={{ justifyContent: 'flex-start', width: '100%' }}
+            className={`btn ${currentView === 'portal' ? 'btn-primary' : 'btn-ghost'}`}
+            style={{ justifyContent: 'flex-start', width: '100%', padding: '12px 16px' }}
           >
             Submit Deletion Request
           </button>
           <button
             onClick={() => handleNavClick('policy')}
-            className="btn btn-ghost"
-            style={{ justifyContent: 'flex-start', width: '100%' }}
+            className={`btn ${currentView === 'policy' ? 'btn-primary' : 'btn-ghost'}`}
+            style={{ justifyContent: 'flex-start', width: '100%', padding: '12px 16px' }}
           >
             Retention Policy & FAQ
           </button>

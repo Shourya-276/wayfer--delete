@@ -42,29 +42,47 @@ export default function Hero({ currentView, setCurrentView }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: '26px'
+        marginBottom: '26px',
+        padding: '0 8px'
       }}>
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '10px',
-          padding: '7px 18px',
-          borderRadius: 'var(--radius-full)',
-          backgroundColor: '#0c0c0c',
-          border: '1px solid var(--border-strong)',
-          boxShadow: 'var(--shadow-sm)'
-        }}>
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.82rem',
-            fontWeight: '700',
-            letterSpacing: '0.08em',
-            color: '#ffffff'
-          }}>
+        <div 
+          className="hero-tagline-pill"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '8px',
+            padding: '7px 18px',
+            borderRadius: 'var(--radius-full)',
+            backgroundColor: '#0c0c0c',
+            border: '1px solid var(--border-strong)',
+            boxShadow: 'var(--shadow-sm)',
+            maxWidth: '100%'
+          }}
+        >
+          <span 
+            className="hero-tagline-text"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.82rem',
+              fontWeight: '700',
+              letterSpacing: '0.08em',
+              color: '#ffffff',
+              whiteSpace: 'nowrap'
+            }}
+          >
             MATCH ➔ MEET ➔ RIDE
           </span>
           <span style={{ color: 'var(--border-strong)' }}>|</span>
-          <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+          <span 
+            className="hero-tagline-text"
+            style={{
+              fontSize: '0.82rem',
+              color: 'var(--text-secondary)',
+              whiteSpace: 'nowrap'
+            }}
+          >
             Ride sharing, made simple
           </span>
         </div>

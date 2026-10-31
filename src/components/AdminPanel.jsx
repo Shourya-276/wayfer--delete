@@ -407,7 +407,7 @@ export default function AdminPanel({ onExitToSite }) {
           </h1>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        <div className="admin-header-actions" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <button
             onClick={() => setShowAddModal(true)}
             className="btn btn-primary btn-sm"
@@ -444,7 +444,7 @@ export default function AdminPanel({ onExitToSite }) {
       </div>
 
       {/* Metric Cards */}
-      <div style={{
+      <div className="admin-metrics-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
         gap: '14px',
