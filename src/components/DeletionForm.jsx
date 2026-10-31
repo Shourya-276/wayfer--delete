@@ -285,7 +285,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
           </div>
         </div>
 
-        {/* Section 2: Deletion Scope */}
+        {/* Section 2: Reason */}
         <div style={{ marginBottom: '28px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
           <h3 style={{
             fontSize: '0.85rem',
@@ -295,110 +295,7 @@ export default function DeletionForm({ onSubmissionSuccess, onNavigateToTrack })
             marginBottom: '16px',
             fontFamily: 'var(--font-heading)'
           }}>
-            2. Scope of Erasure
-          </h3>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <label style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: '14px',
-              padding: '16px',
-              borderRadius: 'var(--radius-md)',
-              border: formData.scope === 'all' ? '1px solid #ffffff' : '1px solid var(--border-medium)',
-              backgroundColor: formData.scope === 'all' ? '#181818' : '#0c0c0c',
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}>
-              <input
-                type="radio"
-                name="scope"
-                value="all"
-                checked={formData.scope === 'all'}
-                onChange={handleChange}
-                style={{ marginTop: '3px', accentColor: '#ffffff' }}
-              />
-              <div>
-                <strong style={{ display: 'block', fontSize: '0.92rem', color: '#ffffff' }}>
-                  Complete Account & All Data Erasure (Recommended for full exit)
-                </strong>
-                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                  Permanently revokes app login, deletes personal profile, vehicle/rider credentials, saved payment cards, and trip history.
-                </p>
-              </div>
-            </label>
-
-            <label style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: '14px',
-              padding: '16px',
-              borderRadius: 'var(--radius-md)',
-              border: formData.scope === 'location' ? '1px solid #ffffff' : '1px solid var(--border-medium)',
-              backgroundColor: formData.scope === 'location' ? '#181818' : '#0c0c0c',
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}>
-              <input
-                type="radio"
-                name="scope"
-                value="location"
-                checked={formData.scope === 'location'}
-                onChange={handleChange}
-                style={{ marginTop: '3px', accentColor: '#ffffff' }}
-              />
-              <div>
-                <strong style={{ display: 'block', fontSize: '0.92rem', color: '#ffffff' }}>
-                  Location Telemetry & Route History Only
-                </strong>
-                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                  Keeps your account active but purges all recorded GPS trajectories, route histories, and favorite pinned locations.
-                </p>
-              </div>
-            </label>
-
-            <label style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: '14px',
-              padding: '16px',
-              borderRadius: 'var(--radius-md)',
-              border: formData.scope === 'marketing' ? '1px solid #ffffff' : '1px solid var(--border-medium)',
-              backgroundColor: formData.scope === 'marketing' ? '#181818' : '#0c0c0c',
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}>
-              <input
-                type="radio"
-                name="scope"
-                value="marketing"
-                checked={formData.scope === 'marketing'}
-                onChange={handleChange}
-                style={{ marginTop: '3px', accentColor: '#ffffff' }}
-              />
-              <div>
-                <strong style={{ display: 'block', fontSize: '0.92rem', color: '#ffffff' }}>
-                  Marketing & Analytics Data Only
-                </strong>
-                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                  Revokes marketing communication consent and purges third-party analytic identifiers while keeping your service functional.
-                </p>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        {/* Section 3: Reason */}
-        <div style={{ marginBottom: '28px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
-          <h3 style={{
-            fontSize: '0.85rem',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: '#ffffff',
-            marginBottom: '16px',
-            fontFamily: 'var(--font-heading)'
-          }}>
-            3. Reason for Leaving
+            2. Reason for Leaving
           </h3>
 
           <div className="form-group">
